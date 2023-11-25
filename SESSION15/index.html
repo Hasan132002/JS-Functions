@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>Set</H1>
+    <script>
+        const setA=new Set([1,2,3,4,5,7,6]);
+        const setB=new Set([6,7,8,9,10]);
+        const UnionSet=new Set([...setA,...setB]); 
+        const IntersectionSet=new Set([...setA].filter((value)=>setB.has(value)));
+        const difference=new Set([...setA].filter((value)=>!setB.has(value)));
+
+
+        document.write('<p>Set A :'+[...setA].join(',')+ '</p>'); 
+        document.write('<p>Set B :'+[...setB].join(',')+ '</p>'); 
+        document.write('<p>Union Set :'+[...UnionSet].join(', ')+  '</p>'); 
+        document.write('<p>IntersectionSet Set :'+[...IntersectionSet].join(', ')+  '</p>'); 
+        document.write('<p>Difference Set :'+[...difference].join(',' )+  '</p>'); 
+
+ 
+  
+
+    </script>
+
+</body>
+<!-- <script src="./index.js" ></script> -->
+</html>

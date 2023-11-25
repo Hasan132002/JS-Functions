@@ -1,0 +1,7 @@
+a={
+    firstname:"Pakistan",
+    lastname:"Zindabad",
+    create_function:function(){
+        
+    }
+}

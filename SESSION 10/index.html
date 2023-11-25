@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Document</title>
+</head>
+<body>
+    <form id="form">
+        <input type="text" id="name">
+        <input type="email" id="email">
+        <input type="text" id="no">
+        <button type="submit" onclick="load()">Submit</button>
+    </form>
+</body>
+<script>
+    function load(){
+    let arraydata=[];
+    const name=document.getElementById('name').value;
+    const email=document.getElementById('email').value;
+    const no=document.getElementById('no').value;
+    arraydata.push(name,email,no);
+
+    document.write(arraydata);
+
+    }
+</script>
+</html>
