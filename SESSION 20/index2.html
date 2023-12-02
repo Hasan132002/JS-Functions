@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist</title>
+</head>
+<body>
+    
+    <div id="todolist">
+        <h2>Todo List</h2>
+        <div>
+            <label for="newTask">New Task</label>
+            <input type="text" id="newTask">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+        <ul id="tasks">
+        </ul>
+    </div>
+</body>
+<script>
+    const tasks=JSON.parse(localStorage.getItem('tasks')) || [];
+
+    function renderTask(){
+        const tasksContainer=document.getElementById('tasks');
+        tasksContainer.innerHTML='';
+        tasks.forEach((task,index)=>{
+           const taskElement =document.createElement('li');
+           taskElement.className='task';
+           taskElement.innerHTML=`<span>${task}</span>
+           <button onclick="deleteTask(${index})">Delete</button>`;
+           tasksContainer.appendChild(taskElement);
+
+        });
+
+        localStorage.setItem('tasks',JSON.stringify(tasks));
+
+
+    }
+    function addTask(){
+        const newTaskInput=document.getElementById('newTask');
+        const newTask=newTaskInput.value.trim();
+        if(newTask!==''){
+            tasks.push(newTask);
+             newTaskInput.value='';
+            renderTask();
+        }
+    }
+    function deleteTask(index){
+        tasks.splice(index,1);
+        renderTask();
+    } 
+    renderTask();
+</script>
+
+
+
+</html>
